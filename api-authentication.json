@@ -1,0 +1,866 @@
+{
+  "name": "api-authentication",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        -144,
+        -160
+      ],
+      "id": "d7faa9dc-1b7e-4d59-89bb-fa821b151c6a",
+      "name": "Execution Data"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        304,
+        -160
+      ],
+      "id": "ef03efa5-bca3-449c-af3c-80ad976b1d00",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ",
+          "mode": "list",
+          "cachedResultName": "animals",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Animal": "={{ $json.body.animal }}",
+            "Name": "={{ $json.body.name }}",
+            "Weight": "={{ $json.body.weight }}"
+          },
+          "matchingColumns": [
+            "Name"
+          ],
+          "schema": [
+            {
+              "id": "Animal",
+              "displayName": "Animal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Weight",
+              "displayName": "Weight",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        80,
+        -160
+      ],
+      "id": "7c866f43-7ea8-4e45-8ce7-08375c1ef39f",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ixKisejCILxNaBA2",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "save-animal-basic-auth",
+        "authentication": "basicAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -368,
+        -160
+      ],
+      "id": "6ad3a276-8ff8-4970-9a5a-795f7c35276b",
+      "name": "Animals API: basic auth",
+      "webhookId": "eab20bad-ae75-4042-86fb-b3bb6a6cdf39",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "BHOTWgjot7eMcKLF",
+          "name": "Basic auth test"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        -144,
+        64
+      ],
+      "id": "480a883b-9650-4455-904f-e453ae994cd9",
+      "name": "Execution Data1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        304,
+        64
+      ],
+      "id": "7070a759-791a-40ed-a498-cbf9b3934cd7",
+      "name": "Respond to Webhook1"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ",
+          "mode": "list",
+          "cachedResultName": "animals",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Animal": "={{ $json.body.animal }}",
+            "Name": "={{ $json.body.name }}",
+            "Weight": "={{ $json.body.weight }}"
+          },
+          "matchingColumns": [
+            "Name"
+          ],
+          "schema": [
+            {
+              "id": "Animal",
+              "displayName": "Animal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Weight",
+              "displayName": "Weight",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        80,
+        64
+      ],
+      "id": "db0263af-72a4-4e82-a394-12b339631a53",
+      "name": "Append or update row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ixKisejCILxNaBA2",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        -144,
+        288
+      ],
+      "id": "79ca66c2-b1a8-4247-8542-3734ad6bc35f",
+      "name": "Execution Data2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        304,
+        288
+      ],
+      "id": "2c05a6a3-b555-4864-99c4-b37bdedbe307",
+      "name": "Respond to Webhook2"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ",
+          "mode": "list",
+          "cachedResultName": "animals",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Animal": "={{ $json.body.animal }}",
+            "Name": "={{ $json.body.name }}",
+            "Weight": "={{ $json.body.weight }}"
+          },
+          "matchingColumns": [
+            "Name"
+          ],
+          "schema": [
+            {
+              "id": "Animal",
+              "displayName": "Animal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Weight",
+              "displayName": "Weight",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        80,
+        288
+      ],
+      "id": "401c2108-0334-4ad6-9ea1-b8a40727b019",
+      "name": "Append or update row in sheet2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ixKisejCILxNaBA2",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "save-animal-header-auth",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -368,
+        64
+      ],
+      "id": "1a77ef01-5b76-41ba-94e7-2f0dc8bd71bc",
+      "name": "Animals API: header auth",
+      "webhookId": "eab20bad-ae75-4042-86fb-b3bb6a6cdf39",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QkM0q4WneYnllaES",
+          "name": "Header auth test"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "save-animal-jwt-auth",
+        "authentication": "jwtAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -368,
+        288
+      ],
+      "id": "33b8a8e1-2951-4799-bd07-a9aba64ad141",
+      "name": "Animals API: JWT auth",
+      "webhookId": "eab20bad-ae75-4042-86fb-b3bb6a6cdf39",
+      "credentials": {
+        "jwtAuth": {
+          "id": "al2WsX2yfyPpi5au",
+          "name": "JWT Auth test"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://{{$vars.supabase_project_id}}.supabase.co/auth/v1/user",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $json.headers.authorization }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -144,
+        608
+      ],
+      "id": "934de135-5dea-4f67-a314-bfe953bcced4",
+      "name": "Validate JWT token, calling Supabase auth",
+      "notesInFlow": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "jYw9yAHYCwmDfej3",
+          "name": "Supabase anon key"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "notes": "We use Supabase anon key here to validate session token by simulating a client side access to Supabase"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        80,
+        512
+      ],
+      "id": "c28921ce-5fb4-45ce-ad60-28cd34b9fa93",
+      "name": "Log data"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.error }}",
+        "options": {
+          "responseCode": 403
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        80,
+        704
+      ],
+      "id": "38d549a6-6fda-4c1c-842b-229f91b5437b",
+      "name": "Return unauthorized"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ",
+          "mode": "list",
+          "cachedResultName": "animals",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uqzrLFkN7dSdwQuJAp5V1tj91iaKO4ZvfatNP6n1REQ/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Animal": "={{ $('API: JWT auth with auth server validation').item.json.body.animal }}",
+            "Name": "={{ $('API: JWT auth with auth server validation').item.json.body.name }}",
+            "Weight": "={{ $('API: JWT auth with auth server validation').item.json.body.weight }}"
+          },
+          "matchingColumns": [
+            "Name"
+          ],
+          "schema": [
+            {
+              "id": "Animal",
+              "displayName": "Animal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Weight",
+              "displayName": "Weight",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        304,
+        512
+      ],
+      "id": "e81da5f4-13fd-4402-bda9-d9e0c2e935f7",
+      "name": "Save data",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ixKisejCILxNaBA2",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        528,
+        512
+      ],
+      "id": "c19b065c-3c05-41df-be45-8f23133c0933",
+      "name": "Returned saved data"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "save-animal-jwt-auth-with-auth-server-validation",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -368,
+        608
+      ],
+      "id": "8725166f-9ead-43da-9020-a3031f1965b6",
+      "name": "API: JWT auth with auth server validation",
+      "webhookId": "eab20bad-ae75-4042-86fb-b3bb6a6cdf39"
+    }
+  ],
+  "pinData": {
+    "Animals API: basic auth": [
+      {
+        "json": {
+          "headers": {
+            "host": "yorrick-test1.app.n8n.cloud",
+            "user-agent": "HTTPie/3.2.4",
+            "content-length": "51",
+            "accept": "application/json, */*;q=0.5",
+            "accept-encoding": "gzip, br",
+            "authorization": "Basic dGVzdDp0b3Rv",
+            "cdn-loop": "cloudflare; loops=1; subreqs=1",
+            "cf-connecting-ip": "38.15.97.195",
+            "cf-ew-via": "15",
+            "cf-ipcountry": "CA",
+            "cf-ray": "97a77142007b0c78-EWR",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "cf-worker": "n8n.cloud",
+            "content-type": "application/json",
+            "x-forwarded-for": "38.15.97.195, 162.158.63.151",
+            "x-forwarded-host": "yorrick-test1.app.n8n.cloud",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "traefik-prod-users-gwc-91-f8b669df6-w576f",
+            "x-is-trusted": "yes",
+            "x-real-ip": "38.15.97.195"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "animal": "cat",
+            "name": "garfield",
+            "weight": 8
+          },
+          "webhookUrl": "https://yorrick-test1.app.n8n.cloud/webhook/add-animal",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Animals API: header auth": [
+      {
+        "json": {
+          "headers": {
+            "host": "yorrick-test1.app.n8n.cloud",
+            "user-agent": "HTTPie/3.2.4",
+            "content-length": "51",
+            "accept": "application/json, */*;q=0.5",
+            "accept-encoding": "gzip, br",
+            "authorization": "Basic dGVzdDp0b3Rv",
+            "cdn-loop": "cloudflare; loops=1; subreqs=1",
+            "cf-connecting-ip": "38.15.97.195",
+            "cf-ew-via": "15",
+            "cf-ipcountry": "CA",
+            "cf-ray": "97a77142007b0c78-EWR",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "cf-worker": "n8n.cloud",
+            "content-type": "application/json",
+            "x-forwarded-for": "38.15.97.195, 162.158.63.151",
+            "x-forwarded-host": "yorrick-test1.app.n8n.cloud",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "traefik-prod-users-gwc-91-f8b669df6-w576f",
+            "x-is-trusted": "yes",
+            "x-real-ip": "38.15.97.195"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "animal": "cat",
+            "name": "garfield",
+            "weight": 8
+          },
+          "webhookUrl": "https://yorrick-test1.app.n8n.cloud/webhook/add-animal",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Animals API: JWT auth": [
+      {
+        "json": {
+          "headers": {
+            "host": "yorrick-test1.app.n8n.cloud",
+            "user-agent": "HTTPie/3.2.4",
+            "content-length": "51",
+            "accept": "application/json, */*;q=0.5",
+            "accept-encoding": "gzip, br",
+            "authorization": "Basic dGVzdDp0b3Rv",
+            "cdn-loop": "cloudflare; loops=1; subreqs=1",
+            "cf-connecting-ip": "38.15.97.195",
+            "cf-ew-via": "15",
+            "cf-ipcountry": "CA",
+            "cf-ray": "97a77142007b0c78-EWR",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "cf-worker": "n8n.cloud",
+            "content-type": "application/json",
+            "x-forwarded-for": "38.15.97.195, 162.158.63.151",
+            "x-forwarded-host": "yorrick-test1.app.n8n.cloud",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "traefik-prod-users-gwc-91-f8b669df6-w576f",
+            "x-is-trusted": "yes",
+            "x-real-ip": "38.15.97.195"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "animal": "cat",
+            "name": "garfield",
+            "weight": 8
+          },
+          "webhookUrl": "https://yorrick-test1.app.n8n.cloud/webhook/add-animal",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "API: JWT auth with auth server validation": [
+      {
+        "json": {
+          "headers": {
+            "host": "yorrick-test1.app.n8n.cloud",
+            "user-agent": "HTTPie/3.2.4",
+            "content-length": "52",
+            "accept": "application/json, */*;q=0.5",
+            "accept-encoding": "gzip, br",
+            "authorization": "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6ImUwNWI0NTdmLTFhMTMtNGQ2Ni04NGMyLWYzYjJjNmI5ZTU3NSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3J0enRmdWp1bXdqc2d6cm5ubHZ4LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJhMWU2NGU1Zi1hNWZjLTRmMmUtYTczNS1hMjMwZGM0MjM2OWIiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzU3MDk4NzEwLCJpYXQiOjE3NTcwOTUxMTAsImVtYWlsIjoieW9ycmlja0B5b3JyaWNramFuc2VuLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6Im90cCIsInRpbWVzdGFtcCI6MTc1NzA5NTExMH1dLCJzZXNzaW9uX2lkIjoiYjBhYzAzMzYtZjE5NS00MzFjLTgxODQtMmMyZmU5Njc4MWNjIiwiaXNfYW5vbnltb3VzIjpmYWxzZX0.Fvn1Df1SOlLtJW25NpgQLdSYGn0HAHNNj3LnlvUkCXmJpol785uH5HujlJ4UV0jEtLeNktfzi2rAelOaclT6vw",
+            "cdn-loop": "cloudflare; loops=1; subreqs=1",
+            "cf-connecting-ip": "38.15.97.195",
+            "cf-ew-via": "15",
+            "cf-ipcountry": "CA",
+            "cf-ray": "97a7dccd94991ef2-LHR",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "cf-worker": "n8n.cloud",
+            "content-type": "application/json",
+            "x-forwarded-for": "38.15.97.195, 162.158.216.160",
+            "x-forwarded-host": "yorrick-test1.app.n8n.cloud",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "traefik-prod-users-gwc-91-f8b669df6-w576f",
+            "x-is-trusted": "yes",
+            "x-real-ip": "38.15.97.195"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "animal": "cat",
+            "name": "garfield",
+            "weight": 13
+          },
+          "webhookUrl": "https://yorrick-test1.app.n8n.cloud/webhook/save-animal-jwt-auth-with-auth-server-validation",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Animals API: basic auth": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data1": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data2": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet2": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Animals API: header auth": {
+      "main": [
+        [
+          {
+            "node": "Execution Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Animals API: JWT auth": {
+      "main": [
+        [
+          {
+            "node": "Execution Data2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate JWT token, calling Supabase auth": {
+      "main": [
+        [
+          {
+            "node": "Log data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return unauthorized",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log data": {
+      "main": [
+        [
+          {
+            "node": "Save data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save data": {
+      "main": [
+        [
+          {
+            "node": "Returned saved data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API: JWT auth with auth server validation": {
+      "main": [
+        [
+          {
+            "node": "Validate JWT token, calling Supabase auth",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a19fa247-a0da-4dde-8966-1b92b923444c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "cc04cd45d5601bf6367b239368b8785c9e58061b036f1d43a3799dffa86d90f5"
+  },
+  "id": "RpB8g6pY7i1tQfCm",
+  "tags": []
+}
